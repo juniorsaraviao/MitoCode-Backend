@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using MitoCodeExam.DataAccess;
+using MitoCodeExam.Services;
 using System;
 
 namespace MitoCodeExam
@@ -36,6 +37,8 @@ namespace MitoCodeExam
             options.DefaultApiVersion                   = new ApiVersion(1, 0);
             options.AssumeDefaultVersionWhenUnspecified = true;
          } );
+
+         services.AddInjection();
 
          services.AddDbContext<MitoCodeExamDbContext>(options =>
          {
