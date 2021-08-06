@@ -11,7 +11,6 @@ namespace MitoCodeExam.Entities
       [StringLength(100)]
       public string  Name       { get; set; }
       public decimal UnitPrice  { get; set; }
-      public string  Picture    { get; set; }
       public bool    Enabled    { get; set; }
    }
 }
