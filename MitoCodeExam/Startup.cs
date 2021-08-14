@@ -15,6 +15,8 @@ namespace MitoCodeExam
 {
    public class Startup
    {
+      private readonly string AllowSpecificOrigins = "_allowSpecificOrigins";
+
       public Startup(IWebHostEnvironment environment)
       {
          var builder = new ConfigurationBuilder()
@@ -37,6 +39,19 @@ namespace MitoCodeExam
             options.DefaultApiVersion                   = new ApiVersion(1, 0);
             options.AssumeDefaultVersionWhenUnspecified = true;
          } );
+
+         services.AddCors(options =>
+         {
+            options.AddPolicy(name: AllowSpecificOrigins,
+               builder =>
+               {
+                  builder.WithOrigins("https://mitocodeexam.conveyor.cloud",
+                                      "http://192.168.1.111:45455")
+                                       .AllowAnyOrigin()
+                                       .AllowAnyHeader()
+                                       .AllowAnyMethod();
+               });
+         });
 
          services.AddInjection();
 
@@ -66,6 +81,8 @@ namespace MitoCodeExam
          app.UseHttpsRedirection();
 
          app.UseRouting();
+
+         app.UseCors(AllowSpecificOrigins);
 
          app.UseAuthorization();
 

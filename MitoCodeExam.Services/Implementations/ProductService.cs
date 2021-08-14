@@ -31,7 +31,8 @@ namespace MitoCodeExam.Services.Implementations
             ProductId   = x.Id,
             Category    = x.CategoryName,
             ProductName = x.Name,
-            UnitPrice   = x.UnitPrice
+            UnitPrice   = x.UnitPrice,
+            Enabled     = x.Enabled
          }).ToList();
 
          response.TotalPages = Utils.GetTotalPages(tupla.total, request.Rows);

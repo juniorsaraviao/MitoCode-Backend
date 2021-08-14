@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Cors;
+using Microsoft.AspNetCore.Mvc;
 using MitoCodeExam.Dto.Request;
 using MitoCodeExam.Dto.Response;
 using MitoCodeExam.Entities;
@@ -8,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MitoCodeExam.Controllers
 {
+   [EnableCors("_allowSpecificOrigins")]
    [Route(Constants.RouteTemplate)]
    [ApiVersion(Constants.V1)]
    [ApiController]

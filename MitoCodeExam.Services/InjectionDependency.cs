@@ -13,6 +13,9 @@ namespace MitoCodeExam.Services
          services.AddTransient<ICategoryRepository, CategoryRepository>();
          services.AddTransient<ICategoryService, CategoryService>();
 
+         services.AddTransient<IProductRepository, ProductRepository>();
+         services.AddTransient<IProductService, ProductService>();
+
          return services;
       }
    }

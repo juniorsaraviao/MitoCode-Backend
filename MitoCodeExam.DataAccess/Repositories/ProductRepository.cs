@@ -38,7 +38,8 @@ namespace MitoCodeExam.DataAccess.Repositories
                Id           = p.Id,
                Name         = p.Name,
                CategoryName = p.Category.Name,
-               UnitPrice    = p.UnitPrice
+               UnitPrice    = p.UnitPrice,
+               Enabled      = p.Enabled
             })
             .AsNoTracking()
             .Skip((page - 1) * rows)
